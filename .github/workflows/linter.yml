@@ -6,12 +6,12 @@ on:
       - master
 
 jobs:
-  linter:
+  lint:
+    name: Lint code base
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-      - name: Install dependencies
-        run: npm install
-      - name: Run linter
-        run: npm run lint
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run Super-Linter
+        uses: github/super-linter@v3
